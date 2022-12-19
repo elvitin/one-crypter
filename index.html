@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ORACLE-ONE-CRYPT</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1 class="titulo">Código secreto</h1>
+
+    <main class="main">
+      <section class="form box">
+        <form action="">
+          <label for="input-txt">Apenas letras minúsculas, sem acento</label>
+          <input
+            to-copy-paste
+            class="text-input"
+            type="text"
+            name="input-txt"
+            id="input-txt"
+            placeholder="insira o texto aqui"
+          />
+          <input
+            class="btn"
+            type="text"
+            value="criptografar!"
+            id="btn-cripto"
+          />
+          <input
+            class="btn"
+            type="text"
+            value="descriptografar!"
+            id="btn-descripto"
+          />
+          <input class="btn" type="button" value="limpar" btn-clear />
+          <br />
+          <label
+            ><input to-clear type="checkbox" checked />Limpar ao copiar</label
+          >
+          <br />
+          <input class="btn" type="text" value="copiar" btn-copy />
+          <input class="btn" type="text" value="colar" btn-paste />
+        </form>
+      </section>
+
+      <section class="msg box">
+        <h2 id="">Mensagem criptografada:</h2>
+
+        <input
+          to-copy-paste
+          class="text-input"
+          type="text"
+          id="result-txt"
+          disabled
+          placeholder="resultado aqui"
+        />
+        <input class="btn" type="button" value="limpar" btn-clear />
+        <br />
+        <label
+          ><input to-clear type="checkbox" checked />Limpar ao copiar</label
+        >
+        <br />
+        <input class="btn" type="text" value="copiar" btn-copy />
+        <input class="btn" type="text" value="colar" btn-paste />
+        <!--name is used by backend to reference form value-->
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
