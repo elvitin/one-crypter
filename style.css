@@ -1,53 +1,362 @@
-* {
-  margin: 0;
-  padding: 0;
+:root {
+  /* BOTÕES */
+  /* 24 é o padrão */
+  --button-default-font-size: 1.25rem;
+  /* 28 é o padrão */
+  --button-default-line-height: 1.25rem;
+  /* default 600 */
+  --button-default-font-weight: 600;
+
+  /* TEXT AREA */
+  /* default 24px */
+  --textarea-default-font-size: 1.25rem;
+  /* default 28px */
+  --textarea-default-line-height: 1.25rem;
+  /* default: 500; */
+  --textarea-default-font-weight: 500;
+
+  /* TEXT AREA [PLACEHOLDER] */
+  /* default 24px */
+  --textarea-placeholder-default-font-size: 1.25rem;
+  /* default 28px */
+  --textarea-placeholder-default-line-height: 1.25rem;
+  /* default: 500; */
+  --textarea-placeholder-default-font-weight: 500;
+
+
+  /* ÍCONES */
+  --icons-default-height: 1.1rem;
+
+  /* HEADER */
+  --header-max-height: 125px;
+
+  /* FOOTER */
+  --footer-min-height: 110px;
+
+  /* MAIN & FOOTER */
+  --horizontal-spacing: 5%;
+  --footer-horizontal-padding: 0%;
+  --main-horizontal-margin: 0%;
+
+  --svg-height: 2rem;
+}
+
+html {
   box-sizing: border-box;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: beautiful, Arial, Helvetica, sans-serif;
+  color: #1D1D1B;
+}
+
 body {
-  background-color: lightgray;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-.main {
-  width: 80vw;
-  margin: auto;
+  background: #EFF2F6;
   display: flex;
-  justify-content: center;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  min-height: 100vh;
+  height: 100vh;
+  place-content: stretch;
 }
 
-.titulo {
-  padding: 15px;
-  width: 30vw;
-  margin: auto;
-
-}
-
-.box {
-  padding: 10px;
-  margin: 0 10px 0 10px;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-  background-color: white;
-  border-radius: 0.5em;
-  width: 30vw;
+/* CONTEÚDO DO TOPO */
+header {
+  background: #fff;
+  padding: 20px;
+  max-height: var(--header-max-height);
   height: auto;
 }
 
-.btn {
-  border: 0;
-  color: white;
-  font-weight: bold;
-  background-color: blue;
-  padding: 10px;
-  margin-top: 10px;
-  border-radius: 0.5em;
+.logo {
+  display: block;
+  margin: 0 auto;
+  max-height: 85px;
+  height: 5rem;
 }
 
-.text-input {
-  border-radius: 0.5em;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  display: block;
-  padding: 0.5em;
+/* CONTEÚDO PRINCIPAL */
+main {
+  /* Propreidades do flex para este item */
+  flex-grow: 1;
+  flex-shrink: 0;
+  /* flex-basis: 1; */
+  /* Propreidades do flex para este item */
+
+
+  display: grid;
+
+  margin: 1.5% calc(var(--horizontal-spacing) + var(--main-horizontal-margin));
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr auto;
+  gap: 15px;
+
+}
+
+.textarea-frame {
+  position: relative;
+}
+
+textarea {
+
+  resize: none;
+  background: #fff;
+  border-radius: 15px;
+  border: 2px solid #CBCFD1;
+
+  padding: 20px;
+
   width: 100%;
-  height: 50px;
+  height: 100%;
+
+  font-size: var(--textarea-default-font-size);
+  line-height: var(--textarea-default-line-height);
+  font-weight: var(--textarea-default-font-weight);
+}
+
+textarea::placeholder {
+  color: #9DA2A4;
+  font-size: var(--textarea-placeholder-default-font-size);
+  line-height: var(--textarea-placeholder-default-line-height);
+  font-weight: var(--textarea-placeholder-default-font-weight);
+}
+
+textarea:focus-within {
+  outline: none;
+  box-shadow: 0px 0px 0px 3px #D2ECE7;
+}
+
+textarea:hover {
+  border-color: #9DA2A4;
+}
+
+button {
+  height: 3rem;
+
+  font-size: var(--button-default-font-size);
+  line-height: var(--button-default-line-height);
+  font-weight: var(--button-default-font-weight);
+
+  letter-spacing: 0.03em;
+
+  border-radius: 15px;
+  padding: 10px 17px;
+
+  display: flex;
+  place-items: center;
+
+  /* transition-duration: 100ms; */
+}
+
+.button-with-icon-and-text {
+  gap: 10px;
+}
+
+
+button img {
+  max-height: 22px;
+  height: var(--icons-default-height);
+}
+
+.white-button {
+  background: #fff;
+  border: 2px solid #CBCFD1;
+}
+
+.white-button:hover {
+  background: #EFF2F6;
+}
+
+.white-button:active {
+  color: #666666;
+}
+
+.green-button {
+  background: #1DA189;
+  color: #FFF;
+}
+
+.green-button:hover {
+  background: #23D1AE;
+}
+
+.green-button:active {
+  background: #006D5C;
+}
+
+
+/* 
+TOOL https://codepen.io/sosuke/pen/Pjoqqp 
+porém, não da a mesma cor, achar outra solução sem ter que por o svg direto no HTML...
+Outro problema, é que a alteração não está sendo efetiva em resoluções menores.
+*/
+.white-button:active .svg {
+  filter: invert(44%) sepia(0%) saturate(2456%) hue-rotate(136deg) brightness(86%) contrast(87%);
+}
+
+
+.copy-paste-frame {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+.encrypt-decrypt-frame {
+  display: flex;
+  gap: 10px;
+}
+
+/* CONTEÚDO DO RODAPÉ  */
+
+footer {
+  min-height: var(--footer-min-height);
+  height: auto;
+  background: #FFF;
+  /* background: steelblue; */
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px calc(var(--footer-horizontal-padding) + var(--horizontal-spacing));
+}
+
+footer p {
+  color: #9DA2A4;
+}
+
+
+.user-frame {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.user-frame p {
+  text-align: center;
+}
+
+.social-media-frame {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: var(--svg-height);
+}
+
+
+
+.social-media-frame a {
+  text-decoration: none;
+  /* Flex para corrigir um bug de espaço - [ ] Refatorar */
+  display: flex;
+}
+
+.social-media-frame a:hover .svg {
+  filter: invert(23%) sepia(6%) saturate(807%) hue-rotate(165deg) brightness(91%) contrast(94%);
+}
+
+
+.supporting-company-frame img {
+  height: var(--svg-height);
+}
+
+.author {
+  color: #23D1AE;
+}
+
+.author:hover {
+  color: #1DA189;
+}
+
+.author:active {
+  color: #006D5C;
+}
+
+
+
+.copyright-text {
+  text-align: center;
+}
+
+@media screen and (max-width: 730px) {
+
+  html {
+    font-size: 14px;
+  }
+
+  body {
+    height: 100%;
+  }
+
+  main {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    grid-template-columns: 100%;
+    grid-template-rows: 1fr 2fr auto;
+  }
+
+  .encrypt-decrypt-frame {
+    justify-content: center;
+  }
+
+  .output-textarea-frame {
+    grid-row: 1;
+  }
+
+  footer {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  footer .copyright-text {
+    grid-row: 3;
+    text-align: center;
+  }
+
+  .supporting-company-frame p {
+    text-align: center;
+  }
+
+  footer .supporting-company-frame {
+    grid-row: 2;
+  }
+}
+
+@media screen and (max-width: 970px) {
+  .copyright-text {
+    align-self: start;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+
+@media screen and (max-width: 415px) {
+
+  html {
+    font-size: 10px;
+  }
+
+  .encrypt-decrypt-frame {
+    flex-direction: column;
+  }
+
+  .encrypt-decrypt-frame button {
+    justify-content: center;
+  }
 }

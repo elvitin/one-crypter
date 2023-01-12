@@ -19,9 +19,12 @@ Não permite acentuação
 */
 
 (_ => {
+  const input = document.querySelector('#input-textarea');
+  const output = document.querySelector('#output-textarea');
+
   // Código do Codificador
   function encode() {
-    const text = document.querySelector('#input-txt').value.toLowerCase();
+    const text = input.value.toLowerCase();
 
     //https://www.samanthaming.com/tidbits/83-4-ways-to-convert-string-to-character-array/
     let result = '';
@@ -47,13 +50,13 @@ Não permite acentuação
       }
     });
 
-    document.querySelector('#result-txt').value = result;
+    output.value = result;
   }
 
   // Código do Decodificador
   function decode() {
     //e.preventDefault();
-    const text = document.querySelector('#input-txt').value.toLowerCase();
+    const text = input.value.toLowerCase();
     const result = text
       .replace(/enter/g, 'e')
       .replace(/imes/g, 'i')
@@ -61,10 +64,11 @@ Não permite acentuação
       .replace(/ober/g, 'o')
       .replace(/ufat/g, 'u');
 
-    document.querySelector('#result-txt').value = result;
+    output.value = result;
   }
 
-  // Código do Botão Limpar
+  /*
+  // Código do Botão Limpar, para o futuro
   function clear(inputElement) {
     if (inputElement) {
       if (inputElement instanceof Event) {
@@ -81,39 +85,42 @@ Não permite acentuação
       input.value = '';
     });
   }
+  */
 
   // Código do Botão Copiar
-  async function copy(e) {
-    const parentElement = e.target.parentElement;
-    const copyElement = parentElement.querySelector('[to-copy-paste]');
-    await navigator.clipboard.writeText(copyElement.value);
-    const clearCheck = parentElement.querySelector('[to-clear]');
-    if (clearCheck.checked) {
-      clear(copyElement);
-    }
+  async function copy(fromElement) {
+    await navigator.clipboard.writeText(fromElement.value);
+
+    // Esse era um metódo para limpar o campo após copiar, vou adicionar depois
+    // const clearCheck = parentElement.querySelector('[to-clear]');
+    // if (clearCheck.checked) {
+    //   clear(copyElement);
+    // }
   }
 
   // Código do Botão Colar
-  async function paste(e) {
-    const parentElement = e.target.parentElement;
-    const pasteElement = parentElement.querySelector('[to-copy-paste]');
+  async function paste(toElement) {
     const copiedValue = await navigator.clipboard.readText();
-    pasteElement.value = copiedValue;
+    toElement.value = copiedValue;
   }
 
-  // Código do Botão Codificar
-  document.querySelector('#btn-cripto').addEventListener('click', encode);
-  document.querySelector('#btn-descripto').addEventListener('click', decode);
+  // Botões de cripografia
+  document.querySelector('#encrypt-btn').addEventListener('click', encode);
+  document.querySelector('#decrypt-btn').addEventListener('click', decode);
 
-  document.querySelectorAll('[btn-clear]').forEach(btn => {
-    btn.addEventListener('click', clear);
-  });
+  // Botões de copiar
+  document
+    .querySelector('.input-textarea-frame .to-copy')
+    .addEventListener('click', _ => copy(input));
+  document
+    .querySelector('.output-textarea-frame .to-copy')
+    .addEventListener('click', _ => copy(output));
 
-  document.querySelectorAll('[btn-copy]').forEach(btn => {
-    btn.addEventListener('click', copy);
-  });
-
-  document.querySelectorAll('[btn-paste]').forEach(btn => {
-    btn.addEventListener('click', paste);
-  });
+  // Botões de colar
+  document
+    .querySelector('.input-textarea-frame .to-paste')
+    .addEventListener('click', _ => paste(input));
+  document
+    .querySelector('.output-textarea-frame .to-paste')
+    .addEventListener('click', _ => paste(output));
 })();
