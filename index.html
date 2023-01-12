@@ -1,73 +1,193 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ORACLE-ONE-CRYPT</title>
-    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="shortcut icon"
+      href="./assets/icons/shield.svg"
+      type="image/x-icon"
+    />
+    <title>ONE crypter</title>
+    <link
+      href="./assets/fonts/beautiful400.woff2"
+      rel="preload"
+      as="font"
+      crossorigin=""
+    />
+    <link
+      href="./assets/fonts/beautiful500.woff2"
+      rel="preload"
+      as="font"
+      crossorigin=""
+    />
+    <link
+      href="./assets/fonts/beautiful700.woff2"
+      rel="preload"
+      as="font"
+      crossorigin=""
+    />
+    <link
+      href="./assets/fonts/beautiful900.woff2"
+      rel="preload"
+      as="font"
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="./fonts.css" />
+    <link rel="stylesheet" href="./style.css" />
   </head>
-  <body>
-    <h1 class="titulo">Código secreto</h1>
 
-    <main class="main">
-      <section class="form box">
-        <form action="">
-          <label for="input-txt">Apenas letras minúsculas, sem acento</label>
-          <input
-            to-copy-paste
-            class="text-input"
-            type="text"
-            name="input-txt"
-            id="input-txt"
-            placeholder="insira o texto aqui"
-          />
-          <input
-            class="btn"
-            type="text"
-            value="criptografar!"
-            id="btn-cripto"
-          />
-          <input
-            class="btn"
-            type="text"
-            value="descriptografar!"
-            id="btn-descripto"
-          />
-          <input class="btn" type="button" value="limpar" btn-clear />
-          <br />
-          <label
-            ><input to-clear type="checkbox" checked />Limpar ao copiar</label
+  <body class="">
+    <header>
+      <img
+        src="./assets/images/one-crypter-logo.svg"
+        alt="ONE Crypter logo"
+        class="logo"
+      />
+    </header>
+
+    <main>
+      <div class="textarea-frame input-textarea-frame">
+        <textarea
+          id="input-textarea"
+          placeholder="Digite o texto aqui"
+          autofocus
+          required
+          minlength="2"
+          maxlength="500"
+        ></textarea>
+        <div class="copy-paste-frame">
+          <!-- Copiar e colar com ícone  -->
+          <button
+            type="button"
+            class="white-button button-with-icon-and-text to-copy"
+            ><img
+              class="svg"
+              src="./assets/icons/copy-icon.svg"
+              alt=""
+            />Copiar</button
           >
-          <br />
-          <input class="btn" type="text" value="copiar" btn-copy />
-          <input class="btn" type="text" value="colar" btn-paste />
-        </form>
-      </section>
-
-      <section class="msg box">
-        <h2 id="">Mensagem criptografada:</h2>
-
-        <input
-          to-copy-paste
-          class="text-input"
-          type="text"
-          id="result-txt"
-          disabled
-          placeholder="resultado aqui"
-        />
-        <input class="btn" type="button" value="limpar" btn-clear />
-        <br />
-        <label
-          ><input to-clear type="checkbox" checked />Limpar ao copiar</label
+          <button
+            to-paste
+            type="button"
+            class="white-button button-with-icon-and-text to-paste"
+            ><img
+              class="svg"
+              src="./assets/icons/paste-icon.svg"
+            />Colar</button
+          >
+          <!-- Copiar e colar com ícone  -->
+        </div>
+      </div>
+      <div class="textarea-frame output-textarea-frame">
+        <textarea
+          id="output-textarea"
+          placeholder="Resultado aqui"
+          readonly
+        ></textarea>
+        <div class="copy-paste-frame">
+          <!-- Copiar e colar com sem ícone  -->
+          <button to-copy type="button" class="white-button to-copy"
+            ><img
+              class="svg"
+              src="./assets/icons/copy-icon.svg"
+              alt="copy-button"
+          /></button>
+          <button to-paste type="button" class="white-button to-paste"
+            ><img
+              class="svg"
+              src="./assets/icons/paste-icon.svg"
+              alt="paste-button"
+          /></button>
+          <!-- Copiar e colar com sem ícone  -->
+        </div>
+      </div>
+      <div class="encrypt-decrypt-frame"
+        ><button
+          id="encrypt-btn"
+          class="green-button button-with-icon-and-text"
+          type="button"
+          ><img src="./assets/icons/encrypt-icon.svg" />Criptografar</button
         >
-        <br />
-        <input class="btn" type="text" value="copiar" btn-copy />
-        <input class="btn" type="text" value="colar" btn-paste />
-        <!--name is used by backend to reference form value-->
-      </section>
+        <button
+          id="decrypt-btn"
+          class="green-button button-with-icon-and-text"
+          type="button"
+          ><img src="./assets/icons/decrypt-icon.svg" />Descriptografar</button
+        ></div
+      >
     </main>
 
-    <script src="script.js"></script>
+    <footer>
+      <div class="supporting-company-frame">
+        <p>Com apoio</p>
+        <a href="https://www.oracle.com/br/one" target="_blank">
+          <img
+            src="./assets/images/logo_oracle-alura-preto.svg"
+            alt="Oracle e Alura"
+          />
+        </a>
+      </div>
+      <p class="copyright-text"
+        >&copy; 2023 ONE crypter &bull; alguns direitos reservados</p
+      >
+      <div class="user-frame">
+        <p
+          >Feito com &#129505; por
+          <span class="author">Victor Rodrigues</span></p
+        >
+        <div class="social-media-frame">
+          <a href="https://github.com/src-rodrigues" target="_blank">
+            <img
+              class="svg"
+              src="./assets/icons/social-medias/github.svg"
+              alt="Perfil do Github"
+            />
+          </a>
+          <a href="https://www.linkedin.com/in/vi-rodrigues/" target="_blank">
+            <img
+              class="svg"
+              src="./assets/icons/social-medias/linkedin.svg"
+              alt="Perfil no LinkedIn"
+            />
+          </a>
+          <a href="https://www.instagram.com/thetaveirinha/" target="_blank">
+            <img
+              class="svg"
+              src="./assets/icons/social-medias/instagram.svg"
+              alt="Perfil do Instagram"
+            />
+          </a>
+          <a href="https://www.youtube.com/@otaveirinha" target="_blank">
+            <img
+              class="svg"
+              src="./assets/icons/social-medias/youtube.svg"
+              alt="Canal no Youtube"
+            />
+          </a>
+          <a
+            class="svg"
+            target="_blank"
+            href="https://discordapp.com/users/558826639002435584"
+          >
+            <img
+              class="svg"
+              src="./assets/icons/social-medias/discord.svg"
+              alt="Perfil no Discord"
+            />
+          </a>
+          <a href="mailto:victortavi@outlook.com">
+            <img
+              class="svg"
+              src="./assets/icons/social-medias/mail.svg"
+              alt="E-mail"
+            />
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./script.js"></script>
   </body>
 </html>
