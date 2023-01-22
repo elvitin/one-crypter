@@ -41,6 +41,115 @@
   --svg-height: 2rem;
 }
 
+
+/* :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+
+.default-theme {
+  --viewport-font-color: #1D1D1B;
+  --viewport-background-color: #EFF2F6;
+
+  --header-background-color: #fff;
+
+  --logo-color: #23D1AE;
+  --logo-hover-color: #006D5C;
+
+  --textarea-background-color: #fff;
+  --textarea-border-color: #CBCFD1;
+  --textarea-hover-border-color: #9DA2A4;
+  --textarea-placeholder-font-color: #9DA2A4;
+  --textarea-active-shadow-color: #D2ECE7;
+
+  --outline-button-font-color: #1D1D1B;
+  --outline-button-background-color: #fff;
+  --outline-button-border-color: #CBCFD1;
+  --outline-button-hover-background-color: #EFF2F6;
+  --outline-button-active-font-color: #666666;
+
+  --filled-button-background-color: #1DA189;
+  --filled-button-font-color: #FFF;
+  --filled-button-hover-background-color: #23D1AE;
+  --filled-button-active-background-color: #006D5C;
+
+  --footer-background-color: #FFF;
+  --footer-font-color: #9DA2A4;
+
+  --author-font-color: #23D1AE;
+  --author-hover-font-color: #1DA189;
+  --author-active-font-color: #006D5C;
+
+  --social-media-icon-color: #9DA2A4;
+  --social-media-hover-icon-color: #666666;
+}
+
+
+/* :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+
+.alura-theme {
+  /* Dark blue */
+  --dark-blue-100: #609ED4;
+  --dark-blue-200: #356EA9;
+  --dark-blue-300: #0A3871;
+  --dark-blue-400: #072B61;
+  --dark-blue-500: #052051;
+
+  /* Light blue */
+  --light-blue-100: #F3F5FC;
+  --light-blue-200: #EFF1FA;
+  --light-blue-300: #E9ECF8;
+  --light-blue-400: #AAB2D5;
+  --light-blue-500: #757FB2;
+
+  /* Light gray */
+  --gray-100: #CED4DA;
+  --gray-200: #ADB5BD;
+  --gray-300: #868E96;
+  --gray-400: #495057;
+  --gray-500: #343A40;
+
+  --viewport-font-color: var(--dark-blue-300);
+  --viewport-background-color: #EFF2F6;
+
+  --header-background-color: #fff;
+  --logo-color: var(--dark-blue-100);
+  --logo-hover-color: var(--dark-blue-300);
+
+  --textarea-background-color: #fff;
+  --textarea-placeholder-font-color: var(--light-blue-400);
+  --textarea-border-color: var(--dark-blue-300);
+  --textarea-hover-border-color: var(--dark-blue-200);
+  --textarea-active-shadow-color: var(--light-blue-400);
+
+
+  --outline-button-background-color: #fff;
+  --outline-button-hover-background-color: var(--light-blue-200);
+  --outline-button-font-color: var(--dark-blue-300);
+  --outline-button-border-color: var(--dark-blue-300);
+  --outline-button-active-font-color: var(--light-blue-500);
+  --outline-button-active-border-color: var(--light-blue-500);
+
+
+  --filled-button-font-color: #FFF;
+  --filled-button-background-color: var(--dark-blue-300);
+  --filled-button-hover-background-color: var(--dark-blue-200);
+  --filled-button-active-background-color: var(--dark-blue-500);
+
+  --footer-background-color: #FFF;
+  --footer-font-color: var(--dark-blue-100);
+
+  --author-font-color: var(--dark-blue-300);
+  --author-hover-font-color: var(--dark-blue-300);
+  --author-active-font-color: var(--dark-blue-300);
+
+  --social-media-icon-color: var(--dark-blue-100);
+  --social-media-hover-icon-color: var(--dark-blue-300);
+}
+
+
+/* :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+/* configurações gerais */
 html {
   box-sizing: border-box;
 }
@@ -53,26 +162,76 @@ html {
   padding: 0;
   border: 0;
   font-family: beautiful, Arial, Helvetica, sans-serif;
-  color: #1D1D1B;
+  color: var(--viewport-font-color);
 }
 
+
+
 body {
-  background: #EFF2F6;
+  background: var(--viewport-background-color);
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
   min-height: 100vh;
   height: 100vh;
-  place-content: stretch;
+  /* place-content: stretch; */
 }
+
+
+/* :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 
 /* CONTEÚDO DO TOPO */
 header {
-  background: #fff;
+  background: var(--header-background-color);
   padding: 20px;
   max-height: var(--header-max-height);
   height: auto;
+  position: relative;
 }
+
+/* PopUp de notificação de ações */
+
+.notify-card {
+
+  position: absolute;
+  transform: translateY(-50%);
+  top: -50%;
+  /* top: 50%; */
+  left: var(--horizontal-spacing);
+  max-width: 30%;
+  border-radius: 5px;
+
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  background: #E3F9F4;
+  padding: 10px;
+  gap: 10px;
+  transition: top .2s ease 0s;
+}
+
+
+/* for notify script */
+.notify-card-shadow {
+  box-shadow: 0 5px 5px -5px #777;
+}
+
+/* for notify script */
+.notify-card-slide-in {
+  top: 50%;
+}
+
+.notify-card p {
+  color: #1D1D1B;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.notify-card img {
+  max-width: 1.625rem;
+}
+
+/* :::::::::::::::::::::::::::::::::: */
 
 .logo {
   display: block;
@@ -80,6 +239,129 @@ header {
   max-height: 85px;
   height: 5rem;
 }
+
+.logo .logo-part {
+  fill: var(--logo-color);
+}
+
+.logo .logo-part-with-stroke {
+  fill: var(--logo-color);
+  stroke: var(--logo-color);
+}
+
+.logo .logo-part:hover {
+  fill: var(--logo-hover-color);
+}
+
+.logo .logo-part-with-stroke:hover {
+  fill: var(--logo-hover-color);
+  stroke: var(--logo-hover-color);
+}
+
+/* :::::::::::::::::::::::::::::::::: */
+
+.config-btn {
+  --gear-icon-height: calc(var(--icons-default-height) + 0.4rem);
+  --gear-icon-width: calc(var(--icons-default-height) + 0.4rem);
+  --config-btn-padding: 10px;
+  --config-btn-border-width: 2px;
+}
+
+.config-btn {
+  position: absolute;
+  right: var(--horizontal-spacing);
+  top: 50%;
+  transform: translateY(-50%);
+  padding: var(--config-btn-padding);
+  border-radius: 15px;
+  border: var(--config-btn-border-width) solid var(--textarea-border-color);
+  /* Estudar pq só com display flex ou grid, o icone centraliza no botão */
+  display: flex;
+  z-index: 1;
+}
+
+.config-btn svg {
+  height: var(--gear-icon-height);
+  width: var(--gear-icon-width);
+}
+
+.config-dropdown input {
+  vertical-align: middle;
+  margin: 0px;
+}
+
+.config-btn:hover {
+  background: var(--outline-button-hover-background-color);
+}
+
+.config-btn:has(.config-dropdown:hover) {
+  background: var(--outline-button-background-color);
+}
+
+.config-btn path {
+  fill: var(--outline-button-font-color);
+  stroke: var(--outline-button-font-color);
+}
+
+.config-btn:active path {
+  fill: var(--outline-button-active-font-color);
+  stroke: var(--outline-button-active-font-color);
+}
+
+.config-btn:has(.config-dropdown:active) path {
+  fill: var(--outline-button-font-color);
+  stroke: var(--outline-button-font-color);
+}
+
+
+.alura-theme .config-btn:active {
+  border: 2px solid var(--outline-button-active-border-color);
+}
+
+.alura-theme .config-btn:has(.config-dropdown:active) {
+  border: 2px solid var(--outline-button-border-color);
+}
+
+/* :::::::::::::::::::::::::::::::::: */
+
+.config-dropdown {
+  position: absolute;
+  border: 2px solid var(--textarea-border-color);
+  background: #fff;
+  top: calc(var(--gear-icon-height) + var(--config-btn-padding) * 2);
+  right: calc(var(--gear-icon-width) + var(--config-btn-padding) * 2);
+  padding: 15px;
+  border-radius: 15px;
+  /* 
+  white-space: nowrap; não deixa que a linha quebre quando se tem uma div com sua largura
+  sendo definida pelo tamanho do conteúdo.
+  */
+  white-space: nowrap;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 5px;
+
+
+  /* box-shadow: 0 10px 6px -6px #777; */
+  box-shadow: 0 10px 6px -6px var(--textarea-active-shadow-color);
+}
+
+.config-dropdown label {
+  margin-top: 10px;
+}
+
+.config-dropdown div {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.config-dropdown-hidden-state {
+  display: none;
+}
+
+
+/* :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 
 /* CONTEÚDO PRINCIPAL */
 main {
@@ -106,9 +388,9 @@ main {
 textarea {
 
   resize: none;
-  background: #fff;
+  background: var(--textarea-background-color);
   border-radius: 15px;
-  border: 2px solid #CBCFD1;
+  border: 2px solid var(--textarea-border-color);
 
   padding: 20px;
 
@@ -118,25 +400,30 @@ textarea {
   font-size: var(--textarea-default-font-size);
   line-height: var(--textarea-default-line-height);
   font-weight: var(--textarea-default-font-weight);
+
+  text-transform: lowercase;
 }
 
 textarea::placeholder {
-  color: #9DA2A4;
+  text-transform: initial;
+  color: var(--textarea-placeholder-font-color);
   font-size: var(--textarea-placeholder-default-font-size);
   line-height: var(--textarea-placeholder-default-line-height);
   font-weight: var(--textarea-placeholder-default-font-weight);
 }
 
+
+
 textarea:focus-within {
   outline: none;
-  box-shadow: 0px 0px 0px 3px #D2ECE7;
+  box-shadow: 0px 0px 0px 3px var(--textarea-active-shadow-color);
 }
 
 textarea:hover {
-  border-color: #9DA2A4;
+  border-color: var(--textarea-hover-border-color);
 }
 
-button {
+main button {
   height: 3rem;
 
   font-size: var(--button-default-font-size);
@@ -146,12 +433,10 @@ button {
   letter-spacing: 0.03em;
 
   border-radius: 15px;
-  padding: 10px 17px;
+  padding: 10px 15px;
 
   display: flex;
   place-items: center;
-
-  /* transition-duration: 100ms; */
 }
 
 .button-with-icon-and-text {
@@ -159,49 +444,68 @@ button {
 }
 
 
-button img {
+
+button svg {
   max-height: 22px;
   height: var(--icons-default-height);
+  width: var(--icons-default-height);
 }
 
-.white-button {
-  background: #fff;
-  border: 2px solid #CBCFD1;
+/* button */
+.outline-button {
+  color: var(--outline-button-font-color);
+  background: var(--outline-button-background-color);
+  border: 2px solid var(--outline-button-border-color);
 }
 
-.white-button:hover {
-  background: #EFF2F6;
+.outline-button:hover {
+  background: var(--outline-button-hover-background-color);
 }
 
-.white-button:active {
-  color: #666666;
+.outline-button:active {
+  color: var(--outline-button-active-font-color);
 }
 
-.green-button {
-  background: #1DA189;
-  color: #FFF;
+.alura-theme .outline-button:active {
+  border: 2px solid var(--outline-button-active-border-color);
 }
 
-.green-button:hover {
-  background: #23D1AE;
+.outline-button path {
+  fill: var(--outline-button-font-color);
+  stroke: var(--outline-button-font-color);
 }
 
-.green-button:active {
-  background: #006D5C;
-}
-
-
-/* 
-TOOL https://codepen.io/sosuke/pen/Pjoqqp 
-porém, não da a mesma cor, achar outra solução sem ter que por o svg direto no HTML...
-Outro problema, é que a alteração não está sendo efetiva em resoluções menores.
-*/
-.white-button:active .svg {
-  filter: invert(44%) sepia(0%) saturate(2456%) hue-rotate(136deg) brightness(86%) contrast(87%);
+.outline-button:active path {
+  fill: var(--outline-button-active-font-color);
+  stroke: var(--outline-button-active-font-color);
 }
 
 
-.copy-paste-frame {
+/* button */
+
+/* filled-button */
+.filled-button {
+  background: var(--filled-button-background-color);
+  color: var(--filled-button-font-color);
+}
+
+.filled-button:hover {
+  background: var(--filled-button-hover-background-color);
+}
+
+.filled-button:active {
+  background: var(--filled-button-active-background-color);
+}
+
+.filled-button path {
+  fill: var(--filled-button-font-color);
+  stroke: var(--filled-button-font-color);
+}
+
+/* filled-button */
+
+
+.options-frame {
   position: absolute;
   bottom: 15px;
   right: 15px;
@@ -214,13 +518,16 @@ Outro problema, é que a alteração não está sendo efetiva em resoluções me
   gap: 10px;
 }
 
+
+/* :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+
 /* CONTEÚDO DO RODAPÉ  */
 
 footer {
   min-height: var(--footer-min-height);
   height: auto;
-  background: #FFF;
-  /* background: steelblue; */
+  background: var(--footer-background-color);
   display: flex;
   flex-wrap: wrap;
 
@@ -232,7 +539,7 @@ footer {
 }
 
 footer p {
-  color: #9DA2A4;
+  color: var(--footer-font-color);
 }
 
 
@@ -261,8 +568,15 @@ footer p {
   display: flex;
 }
 
-.social-media-frame a:hover .svg {
-  filter: invert(23%) sepia(6%) saturate(807%) hue-rotate(165deg) brightness(91%) contrast(94%);
+
+
+.social-media-frame path {
+  fill: var(--social-media-icon-color);
+}
+
+
+.social-media-frame a:hover path {
+  fill: var(--social-media-hover-icon-color);
 }
 
 
@@ -270,24 +584,31 @@ footer p {
   height: var(--svg-height);
 }
 
+.social-media-frame svg {
+  height: var(--svg-height);
+}
+
 .author {
-  color: #23D1AE;
+  color: var(--author-font-color);
 }
 
 .author:hover {
-  color: #1DA189;
+  color: var(--author-hover-font-color);
 }
 
 .author:active {
-  color: #006D5C;
+  color: var(--author-active-font-color);
 }
-
-
 
 .copyright-text {
   text-align: center;
 }
 
+
+
+/* :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+/* Media Queries */
 @media screen and (max-width: 730px) {
 
   html {
@@ -330,6 +651,18 @@ footer p {
 
   footer .supporting-company-frame {
     grid-row: 2;
+  }
+
+  .supporting-company-frame img {
+    height: 1.7rem;
+  }
+
+  .social-media-frame svg {
+    height: 1.7rem;
+  }
+
+  .notify-card {
+    max-width: calc(100% - var(--horizontal-spacing));
   }
 }
 

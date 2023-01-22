@@ -1,3 +1,5 @@
+Look in: [English](/README_en.md) | Português
+
 <img src="./assets/images/one-crypter-logo.svg" alt="MainPage" width="100%">
 
 ---
@@ -10,11 +12,15 @@ Projeto realizado para o primeiro desafio proposto pelo programa [ONE](https://w
 
 Para auxíliar no desenvolvimento, utilizei a ferramenta de prototipagem figma, no qual você pode ver o resultado [aqui](https://www.figma.com/community/file/1196211686510103802).
 
-Pretendo descrever na aba [wiki](https://github.com/src-rodrigues/one-crypter/wiki), todo o processo de aprendizagem e todas o dificuldades que passei.
+Pretendo descrever na aba [wiki](https://github.com/src-rodrigues/one-crypter/wiki), todo o processo de aprendizagem e todas o dificuldades que passei, e coisas que eu ainda não conseguir entender.
+
+Testado no google chrome versão: `109.0.5414.75 (Official Build) (64-bit).` algumas tags ou propriedades podem ser incompatíveis com outras versões.
 
 Objetivos:
 
 - [x] Primeiro Challenge Alura ONE concluído
+- [x] Não permite caracteres com acento
+- [x] Apenas letras minúsculas
 - [x] Alguma responsividade
 - [x] Alguma adaptatividade
 - [x] Prototipagem no [figma](https://www.figma.com/community/file/1196211686510103802)
@@ -22,10 +28,13 @@ Objetivos:
 
 Para o futuro:
 
-- [ ] Botões para limpar
+- [x] Menu com opções
+- [x] Seletor de temas
+- [x] Botões para limpar, copiar e colar
+- [x] Notificações de ações em forma de popup usando transições e/ou animações CSS
 - [ ] Usar toda a viewport sem gerar scroll
-- [ ] Seletor de temas
-- [ ] Aba com algumas opções como: limpar ao copiar
+- [ ] Corrigir os hovers que não fazem sentido nos dispositivos mobile
+- [ ] Permitir alguns caracteres que não necessariamente são acentos porém é rejeitado pela RegExp
 
 ---
 
